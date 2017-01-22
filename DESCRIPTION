@@ -1,0 +1,13 @@
+Package: HyAirshed
+Title: FRP in Daily and Seasonal HYSPLIT-derived Airsheds
+Version: 1.0
+Authors@R: person("Tianjia","Liu",email = "tianjia.liu@columbia.edu",role = c("aut","cre"))
+Description: This package creates daily and seasonal airsheds
+    from HYSPLIT back trajectories for point locations
+    (defined by latitude and longitude) and
+    processes and estimates MODIS FRP in the airsheds.
+Depends:
+    R (>= 3.1.3)
+License: CC BY
+RoxygenNote: 5.0.1
+Date: 01-15-2017
