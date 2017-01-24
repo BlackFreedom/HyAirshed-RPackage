@@ -115,31 +115,31 @@ dailyHyFRP <- function(loc, day_select, year_select, buf=10000,
           #reproject trajectory to Mercator to match frp
           shape <- spTransform(shape,CRS("+proj=laea +lat_0=90 +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs"))
           
-          for (t in 1:length(hr.s)) {
+          for (iPass in 1:length(hr.s)) {
             
-            if (t>1 & t<=4) {
+            if (iPass>1 & iPass<=4) {
               #if trajectory ends before iPass starts, set frp as 0
-              if (length(shape) <= hr.e[t-1]) {
+              if (length(shape) <= hr.e[iPass-1]) {
                 point <- 0
-                collectFRP[iDay,t] <- 0}
+                collectFRP[iDay,iPass] <- 0}
             }
             
-            if (t==1) {
+            if (iPass==1) {
               #subset hysplit trajectories by day
-              if (length(shape) < hr.e[t] & length(shape) > 0) {
-                point <- shape[hr.s[t]:length(shape),]
+              if (length(shape) < hr.e[iPass] & length(shape) > 0) {
+                point <- shape[hr.s[iPass]:length(shape),]
               }
             }
             
-            if (t>1 & t<=4) {  
+            if (iPass>1 & iPass<=4) {  
               #subset hysplit trajectories by day
-              if (length(shape) < hr.e[t] & length(shape) > hr.e[t-1]) {
-                point <- shape[hr.s[t]:length(shape),]
+              if (length(shape) < hr.e[iPass] & length(shape) > hr.e[iPass-1]) {
+                point <- shape[hr.s[iPass]:length(shape),]
               }
             }
             
-            if (length(shape) >= hr.e[t]) {
-              point <- shape[hr.s[t]:hr.e[t],]
+            if (length(shape) >= hr.e[iPass]) {
+              point <- shape[hr.s[iPass]:hr.e[iPass],]
             }
             
             if (class(point)=="SpatialPoints") {
@@ -154,10 +154,10 @@ dailyHyFRP <- function(loc, day_select, year_select, buf=10000,
               #open frp files
               #open frp raster and multiply by 0.1 factor
               
-              if (iDay-(t-1)<=0) {
-                frp <- raster(paste0(frpHome,iYear,"/","FRP",(iYear-1)*1000+iDay-(t-1)+nDays,".tif"))*0.1
-              } else {frp <- raster(paste0(frpHome,iYear,"/","FRP",iYear*1000+iDay-(t-1),".tif"))*0.1}
-              collectFRP[iDay,t] <- cellStats(mask(frp,traj_buf),sum) #extract frp from buffer
+              if (iDay-(iPass-1)<=0) {
+                frp <- raster(paste0(frpHome,iYear,"/","FRP",(iYear-1)*1000+iDay-(iPass-1)+nDays,".tif"))*0.1
+              } else {frp <- raster(paste0(frpHome,iYear,"/","FRP",iYear*1000+iDay-(iPass-1),".tif"))*0.1}
+              collectFRP[iDay,iPass] <- cellStats(mask(frp,traj_buf),sum) #extract frp from buffer
             }
           }
         }
