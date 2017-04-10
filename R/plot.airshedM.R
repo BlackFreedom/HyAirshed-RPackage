@@ -2,7 +2,7 @@
 #' 
 #' Create plots for monthly airsheds with daily HYSPLIT back trajectories for a given point location
 #' @usage plot.airshedM(loc, lon, lat, month_select, year_select,
-#'    tYears=year_select[1]:year_select[length(year_select)],
+#'    tYearss=year_select[1]:year_select[length(year_select)],
 #'    hy_alt, alt.adj=0, sPix=0.25, nPix=100, borderName="ne_10m_admin_0_countries",
 #'    x.adj=FALSE, zoom=4.5, x.just=0, y.just=0, nKM=150,
 #'    traj.col=c("#a6cee3","#fb9a99","#cab2d6"), traj.lwd=0.25,
@@ -15,7 +15,7 @@
 #' @param lat numeric. Latitude of starting point
 #' @param month_select numeric vector. Months to be run
 #' @param year_select numeric vector. Years to be run
-#' @param tYears numeric vector. Total range of years in study, ignoring missing years [default = year_select[1]:year_select[length(year_select)], which is the years from the first year to last year in year_select
+#' @param tYearss numeric vector. Total range of years in study, ignoring missing years [default = year_select[1]:year_select[length(year_select)], which is the years from the first year to last year in year_select
 #' @param hy_alt character string or vector. Name(s) of hysplit heights to be run
 #' @param alt.adj numeric. Adjustment if more than one location [default is 0]
 #' @param sPix numeric. Size of pixel, in degrees [default is 0.3]
@@ -45,7 +45,7 @@
 #' plot.airshedM(loc="delhi",lon=77.2090,lat=28.6139,month_select=10:11,year_select=2007:2013,hy_alt="0.5 km",x.just=1.5,y.just=-1.5,caption="Delhi Monthly Airshed")
 
 plot.airshedM <- function(loc, lon, lat, month_select, year_select,
-                          tYears=year_select[1]:year_select[length(year_select)],
+                          tYearss=year_select[1]:year_select[length(year_select)],
                           hy_alt, alt.adj=0, sPix=0.25, nPix=100, borderName="ne_10m_admin_0_countries",
                           x.adj=FALSE, zoom=4.5, x.just=0, y.just=0, nKM=150,
                           traj.col=c("#a6cee3","#fb9a99","#cab2d6"),
@@ -211,8 +211,8 @@ plot.airshedM <- function(loc, lon, lat, month_select, year_select,
         
         bar <- c(-0.4,10.4,11.15,11.7)+bar.adj
         rect(bar[1],bar[3],bar[2],bar[4],xpd=T)
-        rect(bar[1]+(bar[2]-bar[1])/length(tYear)*(iYear-min(tYear)),bar[3],bar[1]+(bar[2]-bar[1])/length(tYear)*(iYear-(min(tYear)-1)),bar[4],xpd=NA,col=1)
-        text(bar[1]+(bar[2]-bar[1])/length(tYear)*(iYear-(min(tYear)-0.5)),mean(bar[3],bar[4])+0.5*(bar[4]-bar[3]),iYear,col="white",xpd=NA,cex=txt_size+0.05,adj=0.5)
+        rect(bar[1]+(bar[2]-bar[1])/length(tYears)*(iYear-min(tYears)),bar[3],bar[1]+(bar[2]-bar[1])/length(tYears)*(iYear-(min(tYears)-1)),bar[4],xpd=NA,col=1)
+        text(bar[1]+(bar[2]-bar[1])/length(tYears)*(iYear-(min(tYears)-0.5)),mean(bar[3],bar[4])+0.5*(bar[4]-bar[3]),iYear,col="white",xpd=NA,cex=txt_size+0.05,adj=0.5)
         
         bar2 <- c(-0.4,10.4,10.525,11.075)+bar2.adj
         rect(bar2[1],bar2[3],bar2[2],bar2[4],xpd=T)
