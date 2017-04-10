@@ -35,11 +35,6 @@ plot.airshedC <- function(loc, lon, lat, season_name, borderName="ne_10m_admin_0
                           legend.adj=c(0,0), txt_size=0.75, pointDir=paste0("./",loc,"/"),
                           ask_home=TRUE) {
   
-  #Open packages
-  library("raster");library("rgeos");library("maptools");
-  library("mapproj");library("maps");library("rgdal");
-  library("spdep");library("sp")
-  
   options(error=NULL)
   
   #folder locations

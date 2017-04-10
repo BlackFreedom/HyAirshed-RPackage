@@ -23,12 +23,7 @@
 modeHyFRP <- function(loc, month_select=NA, year_select, season_name="season",
                       mode="seasonal", frp_mode="combined", pointDir=paste0("./",loc,"/"),
                       ask_home=TRUE) {
-  
-  #open packages (install first if not in "Packages")
-  library("raster");library("rgeos");library("maptools");
-  library("mapproj");library("maps");library("rgdal");
-  library("spdep");library("sp");library("fields")
-  
+
   options(error=NULL)
   
   #folder locations

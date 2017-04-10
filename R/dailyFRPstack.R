@@ -22,11 +22,6 @@ dailyFRPstack <- function(year_select, sDay, eDay, frp_mode="combined",
                           ocean_mask=TRUE, rawDir="./raw_files/", 
                           rasDir="./rasters/", ask_home=TRUE) {
   
-  #Open packages
-  library("raster");library("rgeos");library("maptools");
-  library("mapproj");library("maps");library("rgdal");
-  library("spdep");library("sp")
-  
   options(error=NULL)
   
   #folder locations

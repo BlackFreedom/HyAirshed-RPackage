@@ -29,11 +29,6 @@ airshed <- function(loc, lon, lat, day_select=NA, month_select=NA, year_select,
                     nPix=100, cutoff=10, composite=TRUE,
                     pointDir=paste0("./",loc,"/"), ask_home=TRUE) {
   
-  #Open packages
-  library("raster");library("rgeos");library("maptools");
-  library("mapproj");library("maps");library("rgdal");
-  library("spdep");library("sp")
-  
   options(error=NULL)
   
   #folder locations

@@ -2,7 +2,7 @@
 #' 
 #' Create plots for monthly airsheds with daily HYSPLIT back trajectories for a given point location
 #' @usage plot.airshedM(loc, lon, lat, month_select, year_select,
-#'    tYearss=year_select[1]:year_select[length(year_select)],
+#'    tYears=year_select[1]:year_select[length(year_select)],
 #'    hy_alt, alt.adj=0, sPix=0.25, nPix=100, borderName="ne_10m_admin_0_countries",
 #'    x.adj=FALSE, zoom=4.5, x.just=0, y.just=0, nKM=150,
 #'    traj.col=c("#a6cee3","#fb9a99","#cab2d6"), traj.lwd=0.25,
@@ -15,7 +15,7 @@
 #' @param lat numeric. Latitude of starting point
 #' @param month_select numeric vector. Months to be run
 #' @param year_select numeric vector. Years to be run
-#' @param tYearss numeric vector. Total range of years in study, ignoring missing years [default = year_select[1]:year_select[length(year_select)], which is the years from the first year to last year in year_select
+#' @param tYears numeric vector. Total range of years in study, ignoring missing years [default = year_select[1]:year_select[length(year_select)], which is the years from the first year to last year in year_select
 #' @param hy_alt character string or vector. Name(s) of hysplit heights to be run
 #' @param alt.adj numeric. Adjustment if more than one location [default is 0]
 #' @param sPix numeric. Size of pixel, in degrees [default is 0.3]
@@ -54,11 +54,6 @@ plot.airshedM <- function(loc, lon, lat, month_select, year_select,
                           caption.adj=c(0,0), nAlt.adj=c(0,0), legend.lab=hy_alt,
                           legend.adj=c(0,0), txt_size=0.75,
                           pointDir=paste0("./",loc,"/"), ask_home=TRUE) {
-  
-  #Open packages
-  library("raster");library("rgeos");library("maptools");
-  library("mapproj");library("maps");library("rgdal");
-  library("spdep");library("sp")
   
   options(error=NULL)
   

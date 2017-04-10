@@ -17,11 +17,6 @@
 HyProcess <- function(loc, year_select, hy_alt, nHours, alt.adj=0, 
                       hyDir="./hysplit/", pointDir=paste0("./",loc,"/"),ask_home="TRUE") {
   
-  #open packages (install first if not in "Packages")
-  library("raster");library("rgeos");library("maptools");
-  library("mapproj");library("maps");library("rgdal");
-  library("spdep");library("sp");library("fields")
-  
   options(error=NULL)
   
   #folder locations

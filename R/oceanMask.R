@@ -11,12 +11,6 @@ oceanMask <- function(ask_home = TRUE) {
   
   options(error=NULL)
   
-  #Create ocean mask
-  #Open packages (install if not in R "Packages")
-  library("raster");library("rgeos");library("maptools");
-  library("mapproj"); library("maps");library("rgdal");
-  library("spdep");library("sp");library("fields");
-  
   Home <- getwd()
 
   if (ask_home=="TRUE") {

@@ -35,11 +35,6 @@ modeFRPstack <- function(loc=NA, day_select=NA, month_select=NA, year_select, mo
                          frp_mode="combined", season_name="season", next_yr=NA,
                          rasDir="./rasters/", pointDir=paste0("./",loc,"/"), ask_home=TRUE) {
   
-  #Open packages
-  library("raster");library("rgeos");library("maptools");
-  library("mapproj");library("maps");library("rgdal");
-  library("spdep");library("sp")
-  
   options(error=NULL)
   
   #folder locations
