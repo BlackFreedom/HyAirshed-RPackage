@@ -25,7 +25,7 @@
 #' airshed(loc="delhi",lon=77.2090,lat=28.6139,month_select=10:11,year_select=2007:2013,season_name="win",hy_alt="500m")
 
 airshed <- function(loc, lon, lat, day_select=NA, month_select=NA, year_select,
-                    season_name="season",mode="seasonal", hy_alt, sPix=0.3,
+                    season_name="season", mode="seasonal", hy_alt, sPix=0.3,
                     nPix=100, cutoff=10, composite=TRUE,
                     pointDir=paste0("./",loc,"/"), ask_home=TRUE) {
   
@@ -40,11 +40,11 @@ airshed <- function(loc, lon, lat, day_select=NA, month_select=NA, year_select,
   }
   
   if (mode=="seasonal") {
-    if (is.na(day_select)==TRUE) {stop("set day_select")}
+    if (is.na(day_select[1])==TRUE) {stop("set day_select")}
     if (length(day_select[which(day_select>365 | day_select<1)])>0) {stop("day_select must be integers [1,365]")}
   }
   if (mode=="monthly") {
-    if (is.na(month_select)==TRUE) {stop("set month_select")}
+    if (is.na(month_select[1])==TRUE) {stop("set month_select")}
     if (length(month_select[which(month_select>12 | month_select<1)])>0) {stop("month_select must be integers [1,12]")}
   }
   
@@ -179,8 +179,6 @@ airshed <- function(loc, lon, lat, day_select=NA, month_select=NA, year_select,
         assign(paste0("airshed",iYear,"_Yr"),airshedYr)
       }
     }
-    
-    
     cat(iYear,": year",which(year_select==iYear),"of",length(year_select),as.character(Sys.time()),'\n')
   }
   
@@ -189,7 +187,7 @@ airshed <- function(loc, lon, lat, day_select=NA, month_select=NA, year_select,
     if (length(year_select)>1) {
       if (composite==TRUE) {
         all_air <- paste0("airshed",year_select)
-        airshedC <- mean(stack(mget(all_air)),na.rm=T)
+        airshedC <- sum(stack(mget(all_air)),na.rm=T)/length(year_select)
         air_ext <- extract(airshedC,spix)
         spol$den <- air_ext
         
