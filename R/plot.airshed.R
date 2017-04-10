@@ -215,14 +215,14 @@ plot.airshed <- function(loc, lon, lat, day_select, year_select,
     segments(spos[1]+nKM*1000/mdeg(spos[2]),spos[2]-0.12,spos[1]+nKM*1000/mdeg(spos[2]),spos[2]+0.12,lwd=1.2)
     text(mean(c(spos[1],spos[1]+nKM*1000/mdeg(spos[2]))),spos[2]+0.35,paste(nKM,"km"),cex=txt_size)
     
-    apos <- c(10.45,-1.27)+nalt.adj
+    apos <- c(10.45,-1.27)+nAlt.adj
     text(apos[1],apos[2],paste0("Number of Trajectories Per Altitude = ",sum(nTraj)),xpd=NA,cex=0.6,font=3,adj=1)
     
     bar <- c(-0.4,10.4,10.55,11.35)+bar.adj
-    nYears <- length(tYear)
+    nYears <- length(tYears)
     rect(bar[1],bar[3],bar[2],bar[4],xpd=T)
-    rect(bar[1]+(bar[2]-bar[1])/length(tYear)*(iYear-min(tYear)),bar[3],bar[1]+(bar[2]-bar[1])/length(tYear)*(iYear-(min(tYear)-1)),bar[4],xpd=NA,col=1)
-    text(bar[1]+(bar[2]-bar[1])/length(tYear)*(iYear-(min(tYear)-0.5)),mean(bar[3],bar[4])+0.5*(bar[4]-bar[3]),iYear,col="white",xpd=NA,cex=txt_size+0.05,adj=0.5)
+    rect(bar[1]+(bar[2]-bar[1])/length(tYears)*(iYear-min(tYears)),bar[3],bar[1]+(bar[2]-bar[1])/length(tYears)*(iYear-(min(tYears)-1)),bar[4],xpd=NA,col=1)
+    text(bar[1]+(bar[2]-bar[1])/length(tYears)*(iYear-(min(tYears)-0.5)),mean(bar[3],bar[4])+0.5*(bar[4]-bar[3]),iYear,col="white",xpd=NA,cex=txt_size+0.05,adj=0.5)
     
     cpos <- c(0.05,9.9)+caption.adj
     if (is.na(caption)==FALSE) {
