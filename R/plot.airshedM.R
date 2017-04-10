@@ -234,7 +234,7 @@ plot.airshedM <- function(loc, lon, lat, month_select, year_select,
         graphics.off()
       }
     }
-    cat(iYear,": year",iYear-(year_select[1]-1),"of",length(year_select),as.character(Sys.time()),'\n')
+    cat(iYear,": year",which(year_select==iYear),"of",length(year_select),as.character(Sys.time()),'\n')
   }
   print("Complete!")
 }

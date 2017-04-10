@@ -168,7 +168,7 @@ dailyHyFRP <- function(loc, day_select, year_select, buf=10000,
       collectFRP <- cbind(collectFRP,rowSums(collectFRP,na.rm=T))
       write.table(collectFRP,file=paste0(outputHome,iAltitudeName,"/",loc,"_daily",iYear,".csv"),sep=",",row.names=paste(rep(tolower(month.abb),DaysInMon),DaysInAll),col.names=c(c("Same Day",paste(1:(day.div-1),"Days Ago")),"Total"))
       
-      cat(iYear,": year",iYear-(iYear[1]-1),"of",length(year_select),";",hy_alt[iAltitude], ": altitude",iAltitude,"of",length(hy_alt),as.character(Sys.time()),'\n')
+      cat(iYear,": year",which(year_select==iYear),"of",length(year_select),";",hy_alt[iAltitude], ": altitude",iAltitude,"of",length(hy_alt),as.character(Sys.time()),'\n')
     }
   }
   

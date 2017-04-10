@@ -235,7 +235,7 @@ plot.airshed <- function(loc, lon, lat, day_select, year_select,
     quartz.save(paste0(outputHome,"airshed",iYear,season_name,".pdf"),type="pdf")
     graphics.off()
     
-    cat(iYear,": year",iYear-(year_select[1]-1),"of",length(year_select),as.character(Sys.time()),'\n')
+    cat(iYear,": year",which(year_select==iYear),"of",length(year_select),as.character(Sys.time()),'\n')
   }
   
   print("Complete!")

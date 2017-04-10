@@ -154,7 +154,7 @@ modeFRPstack <- function(loc=NA, day_select=NA, month_select=NA, year_select, mo
       writeRaster(frp,paste0(outfrpDir,"FRP",iYear,season_name),format="GTiff",overwrite=T)
     }
     
-    cat(iYear,": year",iYear-(iYear[1]-1),"of",length(year_select),as.character(Sys.time()),'\n')
+    cat(iYear,": year",which(year_select==iYear),"of",length(year_select),as.character(Sys.time()),'\n')
   }
   print("Complete!")
 }

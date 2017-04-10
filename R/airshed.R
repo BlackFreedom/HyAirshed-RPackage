@@ -186,7 +186,7 @@ airshed <- function(loc, lon, lat, day_select=NA, month_select=NA, year_select,
     }
     
     
-    cat(iYear,": year",iYear-(iYear[1]-1),"of",length(year_select),as.character(Sys.time()),'\n')
+    cat(iYear,": year",which(year_select==iYear),"of",length(year_select),as.character(Sys.time()),'\n')
   }
   
   #Composite
