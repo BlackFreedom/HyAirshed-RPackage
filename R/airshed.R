@@ -13,7 +13,6 @@
 #' @param season_name character. Name of season, used in the names of the output folder and file [default is "season"]
 #' @param mode character: "monthly" or "seasonal" [default is "seasonal"]
 #' @param hy_alt character string or vector. Name(s) of hysplit heights to be run
-#' @param alt.adj numeric. Adjustment if more than one location [default is 0]
 #' @param sPix numeric. Size of pixel, in degrees [default is 0.3]
 #' @param nPix numeric. Number of pixels in horizontal and vertical direction [default is 100]
 #' @param cutoff numeric. Threshold, in percent, for pixels to be considered part of seasonal airshed  [default to 10]

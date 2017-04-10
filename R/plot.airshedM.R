@@ -45,7 +45,7 @@
 #' plot.airshedM(loc="delhi",lon=77.2090,lat=28.6139,month_select=10:11,year_select=2007:2013,hy_alt="0.5 km",x.just=1.5,y.just=-1.5,caption="Delhi Monthly Airshed")
 
 plot.airshedM <- function(loc, lon, lat, month_select, year_select,
-                          tYearss=year_select[1]:year_select[length(year_select)],
+                          tYears=year_select[1]:year_select[length(year_select)],
                           hy_alt, alt.adj=0, sPix=0.25, nPix=100, borderName="ne_10m_admin_0_countries",
                           x.adj=FALSE, zoom=4.5, x.just=0, y.just=0, nKM=150,
                           traj.col=c("#a6cee3","#fb9a99","#cab2d6"),
@@ -219,7 +219,7 @@ plot.airshedM <- function(loc, lon, lat, month_select, year_select,
         rect(bar2[1]+(bar2[2]-bar2[1])/12*(mon.actual-1),bar2[3],bar2[1]+(bar2[2]-bar2[1])/12*(mon.actual),bar2[4],xpd=NA,col=1)
         text(bar2[1]+(bar2[2]-bar2[1])/12*(mon.actual-0.5),mean(bar2[3],bar2[4])+0.5*(bar2[4]-bar2[3]),month.abb[mon.actual],col="white",xpd=NA,cex=txt_size+0.05,adj=0.5)
         
-        apos <- c(10.45,-1.2)+nalt.adj
+        apos <- c(10.45,-1.2)+nAlt.adj
         text(apos[1],apos[2],paste0("Number of Trajectories Per Altitude = ",nTraj),xpd=NA,cex=0.6,font=3,adj=1)
         
         cpos <- c(0.05,9.9)+caption.adj
@@ -234,7 +234,7 @@ plot.airshedM <- function(loc, lon, lat, month_select, year_select,
         graphics.off()
       }
     }
-    cat(iYear,": year",iYear-(iYear[1]-1),"of",length(year_select),as.character(Sys.time()),'\n')
+    cat(iYear,": year",iYear-(year_select[1]-1),"of",length(year_select),as.character(Sys.time()),'\n')
   }
   print("Complete!")
 }

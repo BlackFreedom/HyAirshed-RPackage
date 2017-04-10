@@ -15,7 +15,7 @@
 #' HyProcess(loc="delhi",year_select=2007:2013,hy_alt="0.5km",nHours=72)
 
 HyProcess <- function(loc, year_select, hy_alt, nHours, alt.adj=0, 
-                      hyDir="./hysplit/", pointDir=paste0("./",loc,"/")) {
+                      hyDir="./hysplit/", pointDir=paste0("./",loc,"/"),ask_home="TRUE") {
   
   #open packages (install first if not in "Packages")
   library("raster");library("rgeos");library("maptools");
@@ -34,7 +34,7 @@ HyProcess <- function(loc, year_select, hy_alt, nHours, alt.adj=0,
   
   #INPUT: hysplit gis & txt files
   #subfolders = iYear (e.g. 2007) -> month (e.g. oct)
-  trajHome <- paste0(HyDir,"hysplit_gis/")
+  trajHome <- paste0(hyDir,"hysplit_gis/")
   ifelse(!file.exists(trajHome),stop("missing hysplit gis directory"),FALSE)
   
   #INPUT: hysplit pdf files

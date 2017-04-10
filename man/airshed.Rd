@@ -35,8 +35,6 @@ airshed(loc, lon, lat, day_select=NA, month_select=NA, year_select,
 
 \item{composite}{logical. Create composite airshed? [default is TRUE]}
 
-\item{alt.adj}{numeric. Adjustment if more than one location [default is 0]}
-
 \item{...}{see global arguments: pointDir, ask_home}
 }
 \description{

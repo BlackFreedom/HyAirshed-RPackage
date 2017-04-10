@@ -5,7 +5,7 @@
 \title{Create Plots for HYSPLIT-derived Monthly Airshed}
 \usage{
 plot.airshedM(loc, lon, lat, month_select, year_select,
-   tYears=year_select[1]:year_select[length(year_select)],
+   tYearss=year_select[1]:year_select[length(year_select)],
    hy_alt, alt.adj=0, sPix=0.25, nPix=100, borderName="ne_10m_admin_0_countries",
    x.adj=FALSE, zoom=4.5, x.just=0, y.just=0, nKM=150,
    traj.col=c("#a6cee3","#fb9a99","#cab2d6"), traj.lwd=0.25,
@@ -24,8 +24,6 @@ plot.airshedM(loc, lon, lat, month_select, year_select,
 \item{month_select}{numeric vector. Months to be run}
 
 \item{year_select}{numeric vector. Years to be run}
-
-\item{tYears}{numeric vector. Total range of years in study, ignoring missing years [default = year_select[1]:year_select[length(year_select)], which is the years from the first year to last year in year_select}
 
 \item{hy_alt}{character string or vector. Name(s) of hysplit heights to be run}
 
@@ -68,6 +66,8 @@ plot.airshedM(loc, lon, lat, month_select, year_select,
 \item{legend.adj}{numeric vector, length=2. Adjust legend position (format is c(x, y) adjustment), [default is c(0,0)]}
 
 \item{txt_size}{numeric. Adjust text size of plot labels, based on size of axis tick labels [default is 0.75]}
+
+\item{tYearss}{numeric vector. Total range of years in study, ignoring missing years [default = year_select[1]:year_select[length(year_select)], which is the years from the first year to last year in year_select}
 
 \item{...}{see global arguments: pointDir, ask_home}
 }
